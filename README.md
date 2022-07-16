@@ -1,1 +1,1 @@
-# HomeWork (not Course Project)
+# HomeWork (not a Course Project)
