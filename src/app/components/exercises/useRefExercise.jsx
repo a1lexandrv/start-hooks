@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useRef } from "react";
 import CollapseWrapper from "../common/collapse";
+import Divider from "../common/divider";
 const UseRefExercise = () => {
+    const renderCount = useRef();
+
+    const changeButton = () => {
+        renderCount.current.style.height = "150px";
+        renderCount.current.style.width = "80px";
+        renderCount.current.innerText = "text";
+    };
+
     return (
         <CollapseWrapper title="Упражнение">
             <p className="mt-3">
@@ -11,15 +20,19 @@ const UseRefExercise = () => {
                 <li>Изменится содержимое блока на &quot;text&quot;</li>
                 <li>высота и ширина станут равны 150 и 80 соответственно</li>
             </ul>
+            <Divider />
             <div
                 className="bg-primary d-flex flex-row justify-content-center align-items-center rounded"
+                ref={renderCount}
                 style={{
                     height: 40,
                     width: 60,
                     color: "white"
                 }}
             >
-                <small>Блок</small>
+                <button className="btn btn-primary" onClick={changeButton}>
+                    Блок
+                </button>
             </div>
         </CollapseWrapper>
     );
